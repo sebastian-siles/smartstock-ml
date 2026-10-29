@@ -124,7 +124,7 @@ def test_phase_6_notebook_has_no_unapproved_urls_or_secret_assignments() -> None
     )
     urls = re.findall(r"https?://[^\s)\]\"]+", notebook_source)
     approved_url_prefixes = (
-        "https://github.com/sebass369/smartstock-ml",
+        "https://github.com/sebastian-siles/smartstock-ml",
         "https://colab.research.google.com/",
     )
     assert urls

@@ -4,15 +4,15 @@ SmartStock ML is a privacy-safe Python project that simulates inventory, evaluat
 ordering policies, and compares leakage-safe demand-forecasting methods using
 deterministic synthetic data.
 
-[![Tests](https://github.com/sebass369/smartstock-ml/actions/workflows/tests.yml/badge.svg)](https://github.com/sebass369/smartstock-ml/actions/workflows/tests.yml)
+[![Tests](https://github.com/sebastian-siles/smartstock-ml/actions/workflows/tests.yml/badge.svg)](https://github.com/sebastian-siles/smartstock-ml/actions/workflows/tests.yml)
 
 **Recommended starting point — Phase 7B, the trained-model comparison:**
-[![Open Phase 7B in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/sebass369/smartstock-ml/blob/main/notebooks/phase_7b_machine_learning.ipynb)
+[![Open Phase 7B in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/sebastian-siles/smartstock-ml/blob/main/notebooks/phase_7b_machine_learning.ipynb)
 
 Also runnable in one click — Phase 6 exploratory analysis
-[![Open Phase 6 in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/sebass369/smartstock-ml/blob/main/notebooks/phase_6_exploratory_analysis.ipynb)
+[![Open Phase 6 in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/sebastian-siles/smartstock-ml/blob/main/notebooks/phase_6_exploratory_analysis.ipynb)
 and Phase 7A forecast baselines
-[![Open Phase 7A in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/sebass369/smartstock-ml/blob/main/notebooks/phase_7_forecasting.ipynb)
+[![Open Phase 7A in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/sebastian-siles/smartstock-ml/blob/main/notebooks/phase_7_forecasting.ipynb)
 
 ## Overview
 
@@ -111,7 +111,7 @@ the expiration boundary. No reduction in waste is claimed or demonstrated.
 ## Try It
 
 The fastest path needs nothing installed. Open the
-[Phase 7B notebook in Colab](https://colab.research.google.com/github/sebass369/smartstock-ml/blob/main/notebooks/phase_7b_machine_learning.ipynb),
+[Phase 7B notebook in Colab](https://colab.research.google.com/github/sebastian-siles/smartstock-ml/blob/main/notebooks/phase_7b_machine_learning.ipynb),
 select a fresh runtime, and run all cells. No credentials, uploads, Google Drive
 connection, or external dataset is required.
 
@@ -131,13 +131,13 @@ tests, `.[dev,analysis]` for the Phase 6 and Phase 7A notebooks, and
 
 - **Phase 7B — trained-model comparison (recommended first notebook):**
   [`notebooks/phase_7b_machine_learning.ipynb`](notebooks/phase_7b_machine_learning.ipynb)
-  · [open in Colab](https://colab.research.google.com/github/sebass369/smartstock-ml/blob/main/notebooks/phase_7b_machine_learning.ipynb)
+  · [open in Colab](https://colab.research.google.com/github/sebastian-siles/smartstock-ml/blob/main/notebooks/phase_7b_machine_learning.ipynb)
 - **Phase 7A — baseline forecast evaluation:**
   [`notebooks/phase_7_forecasting.ipynb`](notebooks/phase_7_forecasting.ipynb)
-  · [open in Colab](https://colab.research.google.com/github/sebass369/smartstock-ml/blob/main/notebooks/phase_7_forecasting.ipynb)
+  · [open in Colab](https://colab.research.google.com/github/sebastian-siles/smartstock-ml/blob/main/notebooks/phase_7_forecasting.ipynb)
 - **Phase 6 — exploratory analysis:**
   [`notebooks/phase_6_exploratory_analysis.ipynb`](notebooks/phase_6_exploratory_analysis.ipynb)
-  · [open in Colab](https://colab.research.google.com/github/sebass369/smartstock-ml/blob/main/notebooks/phase_6_exploratory_analysis.ipynb)
+  · [open in Colab](https://colab.research.google.com/github/sebastian-siles/smartstock-ml/blob/main/notebooks/phase_6_exploratory_analysis.ipynb)
 
 ## Repository Structure
 
@@ -166,7 +166,7 @@ The full project specification lives in [`PROJECT.md`](PROJECT.md).
   contracts against regression.
 - GitHub Actions runs the full suite on Python 3.12 with read-only permissions,
   rejects tracked generated CSV files, and fails if tracked files change.
-- 406 automated tests cover configuration, generation,
+- 407 automated tests cover configuration, generation,
   inventory, ordering, forecasting, the model, notebook structure, the published
   result chart, and this README contract.
 - The Phase 6 and Phase 7B notebooks pin immutable commit revisions for their

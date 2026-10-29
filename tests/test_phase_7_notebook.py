@@ -125,7 +125,7 @@ def test_phase_7_notebook_uses_only_approved_urls() -> None:
     notebook_text = NOTEBOOK_PATH.read_text(encoding="utf-8")
     urls = re.findall(r"https?://[^\s)\]\"]+", notebook_text)
     approved_url_prefixes = (
-        "https://github.com/sebass369/smartstock-ml",
+        "https://github.com/sebastian-siles/smartstock-ml",
         "https://colab.research.google.com/",
     )
     assert urls

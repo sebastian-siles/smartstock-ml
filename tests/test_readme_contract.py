@@ -53,7 +53,7 @@ REQUIRED_README_HEADINGS = (
 )
 
 APPROVED_URL_PREFIXES = (
-    "https://github.com/sebass369/smartstock-ml",
+    "https://github.com/sebastian-siles/smartstock-ml",
     "https://colab.research.google.com/",
 )
 
@@ -151,6 +151,47 @@ def test_readme_uses_only_approved_url_prefixes() -> None:
     assert urls, "README should contain the badge and Colab links."
     for url in urls:
         assert url.startswith(APPROVED_URL_PREFIXES), f"Unapproved URL: {url}"
+
+
+def _notebook_source(path: Path) -> str:
+    notebook = json.loads(path.read_text(encoding="utf-8"))
+    return "\n".join(
+        "".join(cell.get("source", [])) for cell in notebook.get("cells", [])
+    )
+
+
+def test_colab_links_and_clone_urls_target_the_current_repository() -> None:
+    # The approved Colab prefix alone accepts any GitHub owner, so pin the
+    # repository explicitly for every "Open in Colab" link and clone URL.
+    colab_github_prefix = "https://colab.research.google.com/github/"
+    expected_colab_prefix = (
+        colab_github_prefix + "sebastian-siles/smartstock-ml/blob/main/notebooks/"
+    )
+    expected_clone_url = "https://github.com/sebastian-siles/smartstock-ml.git"
+
+    sources = {"README.md": _readme_text()}
+    for notebook_path in _notebook_paths():
+        sources[notebook_path.name] = _notebook_source(notebook_path)
+
+    for name, text in sources.items():
+        colab_links = [
+            url
+            for url in URL_PATTERN.findall(text)
+            if url.startswith(colab_github_prefix)
+        ]
+        assert colab_links, f"{name} should contain an Open in Colab link."
+        for url in colab_links:
+            assert url.startswith(expected_colab_prefix), (
+                f"{name} has a Colab link to another repository: {url}"
+            )
+
+    for notebook_path in _notebook_paths():
+        clone_urls = re.findall(
+            r'REPOSITORY_URL = "([^"]+)"', _notebook_source(notebook_path)
+        )
+        assert clone_urls == [expected_clone_url], (
+            f"{notebook_path.name} clones an unexpected repository: {clone_urls}"
+        )
 
 
 def test_readme_has_no_absolute_windows_path() -> None:
